@@ -1,4 +1,4 @@
-
+Scala
 
 sc
 var linesRDD=sc.textFile("/data/mr/wordcount/input/big.txt")
@@ -11,7 +11,7 @@ wordcounts.take(10)
 wordcounts.saveAsTextFile("output-25march")
 
 
-
+___________________________________________________________________________________
 
 pyspark
 
