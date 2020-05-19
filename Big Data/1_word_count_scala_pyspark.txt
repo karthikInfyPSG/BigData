@@ -1,0 +1,32 @@
+
+
+sc
+var linesRDD=sc.textFile("/data/mr/wordcount/input/big.txt")
+linesRDD.take(10)
+var wordsRDD=linesRDD.flatMap(_.split(" "))
+wordsRDD.take(10)
+var wordsRDDkv=wordsRDD.map((_,1))
+var wordcounts=wordsRDDkv.reduceByKey(_+_)
+wordcounts.take(10)
+wordcounts.saveAsTextFile("output-25march")
+
+
+
+
+pyspark
+
+
+sc
+linesRDD=sc.textFile("/data/mr/wordcount/input/big.txt")
+linesRDD.take(10)
+wordsRDD=linesRDD.flatMap(lambda x:x.split(" "))
+wordsRDD.take(10)
+wordsRDDkv=wordsRDD.map(lambda x:(x,1))
+wordcounts=wordsRDDkv.reduceByKey(lambda x,y:x+y)
+wordcounts.take(10)
+wordcounts.saveAsTextFile("output-25march_python")
+
+
+
+
+
